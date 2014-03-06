@@ -8,6 +8,11 @@
     <f:entry title="User Token" field="userToken" description="The user token, from a user's user key page.">
         <f:textbox field="userToken"/>
     </f:entry>
+    
+    <f:entry title="Notification Message" field="message"
+            description="The message that you would like to send via Pushover.">
+        <f:textbox field="message"/>
+    </f:entry>
 
     <f:entry title="Device [optional]" field="device"
              description="The device, an optional field that allows a user to specify a device on the account to which the message should be sent.">
