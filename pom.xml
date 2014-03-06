@@ -12,8 +12,8 @@
     </parent>
     <artifactId>pushover</artifactId>
     <packaging>hpi</packaging>
-    <version>1.0.0</version>
-    <name>Pushover Plugin</name>
+    <version>1.1.0</version>
+    <name>Pushover Notification Plugin</name>
     <description>A Build status publisher that sends Pushover notifications</description>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/Pushover+Plugin</url>
     <scm>
