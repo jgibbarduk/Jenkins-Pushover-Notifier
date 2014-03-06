@@ -46,7 +46,7 @@ public class PushoverNotifier extends Notifier {
     private void initializePushover()
             throws IOException {
         if (pushoverApi == null) {
-            LOG.info("Initializig Pushover plugin");
+            LOG.info("Initializig Pushover Notification Plugin");
             if (Strings.isNullOrEmpty(this.device)) {
                 pushoverApi = new PushoverApi(appToken, userToken);
             } else {
@@ -66,7 +66,7 @@ public class PushoverNotifier extends Notifier {
                     message = message + "Possible Culprit: " + user.getDisplayName();
                 }
             }
-            LOG.info("Sending Pushover message");
+            LOG.info("Sending Pushover Notification...");
             pushoverApi.sendMessage(message);
         }
         return true;
@@ -93,7 +93,7 @@ public class PushoverNotifier extends Notifier {
          */
         @Override
         public String getDisplayName() {
-            return "Pushover";
+            return "Pushover Notifications";
         }
     }
 }
