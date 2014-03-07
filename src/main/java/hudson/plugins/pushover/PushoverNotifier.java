@@ -27,14 +27,16 @@ public class PushoverNotifier extends Notifier {
 
     public final String appToken;
     public final String userToken;
+    public final String message;
     public final String device;
     public final boolean notifyOnSuccess;
     private transient PushoverApi pushoverApi;
 
     @DataBoundConstructor
-    public PushoverNotifier(String appToken,  String userToken, String device,  boolean notifyOnSuccess) {
+    public PushoverNotifier(String appToken,  String userToken, String message, String device,  boolean notifyOnSuccess) {
         this.appToken = appToken;
         this.userToken = userToken;
+        this.message = message;
         this.device = device;
         this.notifyOnSuccess = notifyOnSuccess;
     }
@@ -60,12 +62,6 @@ public class PushoverNotifier extends Notifier {
             throws InterruptedException, IOException {
         if (!build.getResult().toString().equals(Result.SUCCESS.toString()) || notifyOnSuccess) {
             initializePushover();
-            String message = build.getProject().getName() + ": " + build.getResult().toString() + "\n";
-            if (!build.getCulprits().isEmpty()) {
-                for (User user : build.getCulprits()) {
-                    message = message + "Possible Culprit: " + user.getDisplayName();
-                }
-            }
             LOG.info("Sending Pushover Notification...");
             pushoverApi.sendMessage(message);
         }

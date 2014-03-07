@@ -10,7 +10,7 @@
         <artifactId>plugin</artifactId>
         <version>1.476</version>
     </parent>
-    <artifactId>pushover</artifactId>
+    <artifactId>Pushover-Plugin</artifactId>
     <packaging>hpi</packaging>
     <version>1.1.0</version>
     <name>Pushover Notification Plugin</name>
@@ -34,11 +34,6 @@
             <version>1.7</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.1</version>
-        </dependency>
-        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.2</version>
@@ -59,6 +54,16 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>14.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.main</groupId>
+            <artifactId>jenkins-core</artifactId>
+            <version>1.476</version>
         </dependency>
     </dependencies>
     <build>
