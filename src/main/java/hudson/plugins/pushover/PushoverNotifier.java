@@ -4,11 +4,16 @@ package hudson.plugins.pushover;
 import com.google.common.base.Strings;
 import hudson.Extension;
 import hudson.Launcher;
-import hudson.model.*;
+import hudson.Util;
+import hudson.model.AbstractBuild;
+import hudson.model.AbstractProject;
+import hudson.model.BuildListener;
+import hudson.model.Result;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.BuildStepMonitor;
 import hudson.tasks.Notifier;
 import hudson.tasks.Publisher;
+import hudson.util.VariableResolver;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 import java.io.IOException;
@@ -62,8 +67,12 @@ public class PushoverNotifier extends Notifier {
             throws InterruptedException, IOException {
         if (!build.getResult().toString().equals(Result.SUCCESS.toString()) || notifyOnSuccess) {
             initializePushover();
+
+            final VariableResolver<String> variableResolver = build.getBuildVariableResolver();
+            String resolvedMessage = Util.replaceMacro(message, variableResolver);
+
             LOG.info("Sending Pushover Notification...");
-            pushoverApi.sendMessage(message);
+            pushoverApi.sendMessage(resolvedMessage);
         }
         return true;
     }

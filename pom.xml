@@ -12,7 +12,7 @@
     </parent>
     <artifactId>Pushover-Plugin</artifactId>
     <packaging>hpi</packaging>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
     <name>Pushover Notification Plugin</name>
     <description>A Build status publisher that sends Pushover notifications</description>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/Pushover+Plugin</url>
