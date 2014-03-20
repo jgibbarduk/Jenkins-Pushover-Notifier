@@ -19,6 +19,9 @@ import org.kohsuke.stapler.DataBoundConstructor;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+import org.jenkinsci.plugins.tokenmacro.MacroEvaluationException;
+import org.jenkinsci.plugins.tokenmacro.TokenMacro;
+
 /**
  * Created with IntelliJ IDEA.
  * User: michael
@@ -67,9 +70,15 @@ public class PushoverNotifier extends Notifier {
             throws InterruptedException, IOException {
         if (!build.getResult().toString().equals(Result.SUCCESS.toString()) || notifyOnSuccess) {
             initializePushover();
-
-            final VariableResolver<String> variableResolver = build.getBuildVariableResolver();
-            String resolvedMessage = Util.replaceMacro(message, variableResolver);
+            
+            String resolvedMessage = message;
+            
+            try {
+                resolvedMessage = TokenMacro.expandAll(build, listener, message);
+            } catch (MacroEvaluationException e) {
+                resolvedMessage = message;
+                e.printStackTrace(listener.getLogger());
+            }
 
             LOG.info("Sending Pushover Notification...");
             pushoverApi.sendMessage(resolvedMessage);
