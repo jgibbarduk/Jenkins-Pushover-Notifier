@@ -1,6 +1,6 @@
-## Pushover Plugin for Jenkins CI
+## Pushover Notification Plugin for Jenkins CI
 
-This is a Jenkins plugin for integration with the [Pushover Service](http://pushover.net/) to push build notifications to mobile devices.
+This is a Jenkins plugin for integration with the [Pushover Service](http://pushover.net/) to push build notifications to connected devices.
 
 ### Before You Begin
 
@@ -8,9 +8,11 @@ This is a Jenkins plugin for integration with the [Pushover Service](http://push
 
 ### Builds
 
-Please see [Build Hive Job](https://buildhive.cloudbees.com/job/mzehrer/job/jenkins-pushover-notifier/)
+[![Build Status](http://kryten.jgibbard.me.uk:8080/buildStatus/icon?job=Pushover Notification Plugin)](http://kryten.jgibbard.me.uk:8080/job/Pushover%20Notification%20Plugin/)
 
 
 ### Credits
+
+Forked from [mzehrer/jenkins-pushover-notifier](https://github.com/mzehrer/jenkins-pushover-notifier).
 
 Based on the [Notifio Notifier](https://github.com/csamuel/hudson-notifo-plugin) plugin by Chris Samuel and the [api-pushover project](https://github.com/Omertron/api-pushover) by Stuart Boston.
